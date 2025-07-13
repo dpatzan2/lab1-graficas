@@ -36,7 +36,7 @@ fn main() {
         Vector2::new(682.0, 175.0), Vector2::new(708.0, 120.0), Vector2::new(735.0, 148.0), Vector2::new(739.0, 170.0),
     ];
 
-    framebuffer.set_current_color(Color::ORANGE);
+    framebuffer.set_current_color(Color::YELLOW);
     fill_polygon(&mut framebuffer, &poly1);
     framebuffer.set_current_color(Color::WHITE);
     framebuffer.draw_polygon_outline(&poly1);
