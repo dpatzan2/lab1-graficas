@@ -20,6 +20,11 @@ fn main() {
         Vector2::new(321.0, 335.0), Vector2::new(288.0, 286.0), Vector2::new(339.0, 251.0), Vector2::new(374.0, 302.0),
     ];
 
+    let poly3 = vec![
+        Vector2::new(377.0, 249.0), Vector2::new(411.0, 197.0), Vector2::new(436.0, 249.0),
+    ];
+
+    
 
     framebuffer.set_current_color(Color::RED);
     fill_polygon(&mut framebuffer, &poly1);
@@ -27,7 +32,10 @@ fn main() {
     framebuffer.set_current_color(Color::GREEN);
     fill_polygon(&mut framebuffer, &poly2);
 
+    framebuffer.set_current_color(Color::BLUE);
+    fill_polygon(&mut framebuffer, &poly3);
 
+  
 
     framebuffer.render_to_file("out.png");
     framebuffer.render_to_bmp("out.bmp");
