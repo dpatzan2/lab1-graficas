@@ -32,7 +32,9 @@ fn main() {
         Vector2::new(517.0, 144.0), Vector2::new(466.0, 180.0),
     ];
 
-  
+    let hole_poly5 = vec![
+        Vector2::new(682.0, 175.0), Vector2::new(708.0, 120.0), Vector2::new(735.0, 148.0), Vector2::new(739.0, 170.0),
+    ];
 
     framebuffer.set_current_color(Color::RED);
     fill_polygon(&mut framebuffer, &poly1);
@@ -46,7 +48,9 @@ fn main() {
     framebuffer.set_current_color(Color::ORANGE);
     fill_polygon(&mut framebuffer, &poly4);
 
-    
+    framebuffer.set_current_color(Color::WHITE);
+    fill_polygon(&mut framebuffer, &hole_poly5);
+
     framebuffer.render_to_file("out.png");
     framebuffer.render_to_bmp("out.bmp");
     println!("Imagen generada como out.png y out.bmp");
