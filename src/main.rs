@@ -6,8 +6,8 @@ use polygon::fill_polygon;
 use raylib::prelude::*;
 
 fn main() {
-    let mut framebuffer = Framebuffer::new(800, 600, Color::WHITE);
-    framebuffer.set_background_color(Color::WHITE);
+    let mut framebuffer = Framebuffer::new(800, 600, Color::BLACK);
+    framebuffer.set_background_color(Color::BLACK);
     framebuffer.clear();
 
     let poly1 = vec![
@@ -36,20 +36,31 @@ fn main() {
         Vector2::new(682.0, 175.0), Vector2::new(708.0, 120.0), Vector2::new(735.0, 148.0), Vector2::new(739.0, 170.0),
     ];
 
-    framebuffer.set_current_color(Color::RED);
+    framebuffer.set_current_color(Color::ORANGE);
     fill_polygon(&mut framebuffer, &poly1);
-
-    framebuffer.set_current_color(Color::GREEN);
-    fill_polygon(&mut framebuffer, &poly2);
+    framebuffer.set_current_color(Color::WHITE);
+    framebuffer.draw_polygon_outline(&poly1);
 
     framebuffer.set_current_color(Color::BLUE);
-    fill_polygon(&mut framebuffer, &poly3);
-
-    framebuffer.set_current_color(Color::ORANGE);
-    fill_polygon(&mut framebuffer, &poly4);
-
+    fill_polygon(&mut framebuffer, &poly2);
     framebuffer.set_current_color(Color::WHITE);
+    framebuffer.draw_polygon_outline(&poly2);
+
+    framebuffer.set_current_color(Color::RED);
+    fill_polygon(&mut framebuffer, &poly3);
+    framebuffer.set_current_color(Color::WHITE);
+    framebuffer.draw_polygon_outline(&poly3);
+
+    framebuffer.set_current_color(Color::GREEN);
+    fill_polygon(&mut framebuffer, &poly4);
+   
+    framebuffer.set_current_color(Color::BLACK);
     fill_polygon(&mut framebuffer, &hole_poly5);
+    
+    
+    framebuffer.set_current_color(Color::WHITE);
+    framebuffer.draw_polygon_outline(&poly4);
+    framebuffer.draw_polygon_outline(&hole_poly5);
 
     framebuffer.render_to_file("out.png");
     framebuffer.render_to_bmp("out.bmp");
